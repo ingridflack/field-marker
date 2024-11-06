@@ -19,6 +19,7 @@ This is a field marker APP built using [React.js](https://react.dev/), [Vite](ht
     npm install
     ```    
 4. Run `npm run dev` to build and run the containers
+5. 4. Run `npm run test` to run unit tests
 
 ## Features
 
