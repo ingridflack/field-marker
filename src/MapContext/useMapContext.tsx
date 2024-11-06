@@ -3,7 +3,7 @@ import { DeleteModal, Point } from "../interfaces/common";
 import { getFieldCenter } from "../utils/map";
 import { GeoJSON, LatLng } from "leaflet";
 
-type MapContextType = {
+export type MapContextType = {
   points: Point[];
   selectedPoint: string | null;
   deleteModal: DeleteModal;
