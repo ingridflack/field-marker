@@ -5,9 +5,10 @@ import { Container, EmptyMessage, Header, List } from "./styles";
 interface PointsListProps {
     points: Point[];
     selectedPoint: string | null;
+    onSelectPoint: (id: string) => void;
 }
 
-const PointsList = ({ points, selectedPoint }: PointsListProps) => {
+const PointsList = ({ points, selectedPoint, onSelectPoint }: PointsListProps) => {
     const isEmpty = points.length === 0;
 
     return (
@@ -19,7 +20,7 @@ const PointsList = ({ points, selectedPoint }: PointsListProps) => {
                 )}
 
                 {points.map((point, index) => (
-                    <PointListItem key={point.id} point={point} selected={point.id === selectedPoint} index={index} />
+                    <PointListItem key={point.id} point={point} selected={point.id === selectedPoint} index={index} onSelectPoint={onSelectPoint} />
                 ))}
             </List>
         </Container>

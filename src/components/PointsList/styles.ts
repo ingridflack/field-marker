@@ -9,9 +9,14 @@ export const Container = styled.div`
     max-width: 344px;
     border-radius: 8px;
     overflow: hidden;
+    width: 100%;
+    max-width: 344px;
 `;
 
 export const List = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-height: 50vh;
     overflow: auto;
 `;
@@ -24,12 +29,13 @@ export const Header = styled.h2`
     line-height: 1;
     margin: 0;
     padding: 10px 16px;
-    font-family: 'Courier New', Courier, monospace;
 `
 
 export const EmptyMessage = styled.p`
     text-align: center;
-    font-weight: 600;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+    color: #556476;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    max-width: 181px;
 `

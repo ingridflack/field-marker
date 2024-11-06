@@ -4,19 +4,25 @@ export const Container = styled.div<{ $selected: boolean }>`
     background-color: ${({ $selected }) => $selected ? '#F5F6FA' : '#fff'};
     padding: 10px 16px;
     border-top: 1px solid #E7E8EF;
+    cursor: pointer;
+    width: 100%;
 `
 
 export const Title = styled.p`
     font-weight: 500;
-    font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
     line-height: 21px;
     color: #20252B;
     margin: 0;
+    display: flex;
+    align-items: center;
+
+    img {
+        margin-right: 3px;
+    }
 `
 
 export const CreatedAt = styled.p`
-    font-family: 'Courier New', Courier, monospace;
     font-size: 12px;
     line-height: 1;
     color: #627389;
