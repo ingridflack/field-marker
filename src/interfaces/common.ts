@@ -7,4 +7,6 @@ export interface Point {
     isSelected?: boolean;
 }
 
-export type Variant = "delete" | "add";
+export type ButtonVariant = "delete" | "add";
+
+export type DeleteModalType = "delete-all" | "delete";
