@@ -1,7 +1,9 @@
-import { DragEndEvent, Icon, LatLng, LeafletMouseEvent, Point } from "leaflet";
+import { DragEndEvent, Icon, LeafletMouseEvent } from "leaflet";
 import { Marker, useMapEvents } from "react-leaflet";
-import defaultPinIcon from "./assets/icons/default-pin.svg";
-import selectedPinIcon from "./assets/icons/selected-pin.svg";
+import defaultPinIcon from "./../../assets/icons/default-pin.svg";
+import selectedPinIcon from "./../../assets/icons/selected-pin.svg";
+import { useContext } from "react";
+import { MapContext } from "../../MapContext/useMapContext";
 
 const defaultPin = new Icon({
     iconUrl: defaultPinIcon,
@@ -13,23 +15,24 @@ const selectedPin = new Icon({
     iconAnchor: [16, 42],
 })
 
-interface MapPointsProps {
-    points: Point[];
-    selectedPoint: string | null;
-    onMapClick: (position: LatLng) => void;
-    onMarkerClick: (id: string) => void;
-    onPointDragEnd: (id: string, position: LatLng) => void;
-}
+const MapPoints = () => {
+    const {
+        points,
+        selectedPoint,
+        onAddPoint,
+        onSelectPoint,
+        onPointDragEnd,
+    } = useContext(MapContext);
 
-const MapPoints = ({ points, selectedPoint, onPointDragEnd, onMapClick, onMarkerClick }: MapPointsProps) => {
     useMapEvents({
         click: (event: LeafletMouseEvent) => {
-            onMapClick(event.latlng);
+            onAddPoint(event.latlng);
         }
     });
 
     const handleClick = (id: string) => () => {
-        onMarkerClick(id);
+        const isPointSelected = selectedPoint === id;
+        onSelectPoint(isPointSelected ? null : id);
     }
 
     const handleDragEnd = (id: string) => (event: DragEndEvent) => {

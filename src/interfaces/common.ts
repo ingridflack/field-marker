@@ -10,3 +10,9 @@ export interface Point {
 export type ButtonVariant = "delete" | "add";
 
 export type DeleteModalType = "delete-all" | "delete";
+
+export interface DeleteModal {
+    show: boolean;
+    id?: string | null;
+    type?: DeleteModalType;
+}

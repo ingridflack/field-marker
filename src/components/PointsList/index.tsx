@@ -1,15 +1,17 @@
-import { Point } from "../../interfaces/common";
+import { useContext } from "react";
 import PointListItem from "../PointListItem";
 import { Container, EmptyMessage, Header, List } from "./styles";
+import { MapContext } from "../../MapContext/useMapContext";
 
-interface PointsListProps {
-    points: Point[];
-    selectedPoint: string | null;
-    onSelectPoint: (id: string) => void;
-}
 
-const PointsList = ({ points, selectedPoint, onSelectPoint }: PointsListProps) => {
+const PointsList = () => {
+    const { points,
+        selectedPoint,
+        onSelectPoint,
+    } = useContext(MapContext);
+
     const isEmpty = points.length === 0;
+
 
     return (
         <Container>

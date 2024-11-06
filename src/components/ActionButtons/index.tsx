@@ -1,23 +1,24 @@
-import { Point } from "../../interfaces/common";
 import ActionButton from "../ActionButton"
 import { ButtonWrapper } from "./styles"
 import trashIcon from "../../assets/icons/trash.svg"
 import pinIcon from "../../assets/icons/pin.svg"
+import { useContext } from "react";
+import { MapContext } from "../../MapContext/useMapContext";
 
-interface ActionButtonsProps {
-    points: Point[];
-    selectedPoint: string | null;
-    onAdd: () => void;
-    onDelete: (selectedPoint: string) => void;
-    onDeleteAll: () => void;
-}
+const ActionButtons = () => {
+    const {
+        points,
+        selectedPoint,
+        onAddPoint,
+        onOpenDeleteAllModal,
+        onOpenDeletePointModal,
+    } = useContext(MapContext);
 
-const ActionButtons = ({ onAdd, onDelete, onDeleteAll, points, selectedPoint }: ActionButtonsProps) => {
     return (
         <ButtonWrapper>
             {selectedPoint &&
                 <ActionButton
-                    onClick={() => onDelete(selectedPoint)}
+                    onClick={() => onOpenDeletePointModal(selectedPoint)}
                     variant="delete"
                     icon={trashIcon}
                 >
@@ -25,7 +26,7 @@ const ActionButtons = ({ onAdd, onDelete, onDeleteAll, points, selectedPoint }: 
                 </ActionButton>
             }
             <ActionButton
-                onClick={() => onAdd()}
+                onClick={() => onAddPoint()}
                 variant="add"
                 icon={pinIcon}
             >
@@ -33,7 +34,7 @@ const ActionButtons = ({ onAdd, onDelete, onDeleteAll, points, selectedPoint }: 
             </ActionButton>
             {points.length > 0 &&
                 <ActionButton
-                    onClick={() => onDeleteAll()}
+                    onClick={() => onOpenDeleteAllModal()}
                     variant="delete"
                     icon={trashIcon}
                 >
