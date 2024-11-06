@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render } from "@testing-library/react";
 import { ButtonVariant } from "../../interfaces/common";
-import ActionButton from ".";
+import Button from ".";
 
-describe("ActionButton", () => {
+describe("Button", () => {
     it("should match the snapshot", () => {
         const props = {
             onClick: vi.fn(),
@@ -13,7 +13,7 @@ describe("ActionButton", () => {
         }
 
         const { container } = render(
-            <ActionButton {...props} />
+            <Button {...props} />
         );
 
         expect(container).toMatchSnapshot();
@@ -28,7 +28,7 @@ describe("ActionButton", () => {
         }
 
         const { getByRole } = render(
-            <ActionButton {...props} />
+            <Button {...props} />
         );
 
         const button = getByRole("button", { name: 'Button test' });
