@@ -4,7 +4,7 @@ import { ButtonWrapper } from "./styles"
 import trashIcon from "../../assets/icons/trash.svg"
 import pinIcon from "../../assets/icons/pin.svg"
 
-interface ButtonListProps {
+interface ActionButtonsProps {
     points: Point[];
     selectedPoint: string | null;
     onAdd: () => void;
@@ -12,7 +12,7 @@ interface ButtonListProps {
     onDeleteAll: () => void;
 }
 
-const ButtonList = ({ onAdd, onDelete, onDeleteAll, points, selectedPoint }: ButtonListProps) => {
+const ActionButtons = ({ onAdd, onDelete, onDeleteAll, points, selectedPoint }: ActionButtonsProps) => {
     return (
         <ButtonWrapper>
             {selectedPoint &&
@@ -44,4 +44,4 @@ const ButtonList = ({ onAdd, onDelete, onDeleteAll, points, selectedPoint }: But
     );
 }
 
-export default ButtonList;
+export default ActionButtons;
