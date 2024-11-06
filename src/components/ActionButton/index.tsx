@@ -1,12 +1,12 @@
-import { Variant } from "../../interfaces/common";
+import { ButtonVariant } from "../../interfaces/common";
 import { Button } from "./styles"
 
 
 interface ActionButtonProps {
     onClick: () => void;
-    variant: Variant;
+    variant: ButtonVariant;
     children: React.ReactNode;
-    icon?: React.ReactNode;
+    icon: string;
 }
 
 const ActionButton = ({ onClick, variant, children, icon }: ActionButtonProps) => {
@@ -14,7 +14,7 @@ const ActionButton = ({ onClick, variant, children, icon }: ActionButtonProps) =
         <Button onClick={onClick} variant={variant}>
             {children}
 
-            {icon && icon}
+            {icon && <img src={icon} />}
         </Button>
     )
 }
